@@ -5,7 +5,7 @@ let blackjakeGame = {
   cards: ["2", "3", "4", "5", "6", "7", "8", "9","10", "K", "Q", "J", "A"],
   cardsMap: {"2":2, "3":3, "4":4, "5":5, "6":6, "7":7, "8":8, "9":9, "10":10, "K":10, "Q":10, "J":10, "A":[1,11] },
   wins : 0,
-  looses :0,
+  loses :0,
   draws :0,
   turn : false,
   over : false,
@@ -123,7 +123,7 @@ function winnerFunction() {
       //bot will be the winner
       winner = BOT;
       looseSound.play();
-      blackjakeGame['looses']++;
+      blackjakeGame['loses']++;
     }else if (YOU['score'] === BOT['score']) {
       //match will be drawn
     blackjakeGame['draws']++;      
@@ -132,7 +132,7 @@ function winnerFunction() {
     //bot will the match
     winner = BOT;
     looseSound.play();
-    blackjakeGame['looses']++;
+    blackjakeGame['loses']++;
   }else if (YOU['score'] >21 && BOT['score'] > 21) {
     //match will be drawn
     blackjakeGame['draws']++;
@@ -147,7 +147,7 @@ function showResults(winner) {
       document.querySelector('#win').textContent = blackjakeGame['wins'];
     } else if (winner === BOT) {
       show = "You lost";
-      document.querySelector('#loose').textContent = blackjakeGame['looses'];
+      document.querySelector('#loose').textContent = blackjakeGame['loses'];
       
     }else{
       show = "Match Drawn";
